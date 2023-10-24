@@ -1,0 +1,23 @@
+<!-- DbConfig -->
+<?php
+class DvConfig
+{
+        private $_host = 'localhost';
+        private $_username = 'id21314900_root';
+        private $_password = 'Root.2023';
+        private $_database = 'id21314900_poo';
+        protected $connection;
+        
+        public function __construct()
+        {
+            if (!isset($this->connection)) {
+                $this->connection = new mysqli($this->_host, $this->_username, $this->_password, $this->_database);
+                
+                if (!$this->connection) {
+                    echo 'Não é possível conectar ao servidor de banco de dados';
+                    exit;
+                }
+            }
+        }
+}
+echo 'Conexão servidor de banco de dados efetuada com sucesso!';
